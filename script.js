@@ -61,11 +61,12 @@ const createBookButtons = (parent) => {
         switch (target.id) {
             case "statusBtn":
                 let readStatus = myLibrary[statusBtn.getAttribute("data-btn")].readStatus;
-                myLibrary[statusBtn.getAttribute("data-btn")].readStatus = readStatus ? false : true;
+                myLibrary[+statusBtn.getAttribute("data-btn")].readStatus = readStatus ? false : true;
                 rerenderBooks();
                 break;
             case "deleteBtn":
-                
+                myLibrary.splice(+deleteBtn.getAttribute("data-btn"), 1);
+                rerenderBooks();
                 break;
         }
     });
