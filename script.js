@@ -34,8 +34,49 @@ const closeModal = () =>{
 }
 
 const booksContainer = document.querySelector(".container");
+
+let count = 0;
+
+const createBookButtons = (parent) => {
+    const bookButtonsContainer = document.createElement("div");
+    bookButtonsContainer.classList.add("buttons-container");
+    const statusBtn = document.createElement("button");
+    statusBtn.textContent = "Change status";
+    statusBtn.setAttribute("type", "button");
+    statusBtn.setAttribute("id", "statusBtn");
+    statusBtn.setAttribute("data-btn", `${count}`);
+    statusBtn.classList.add("btn");
+    const deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "Delete book";
+    deleteBtn.classList.add("btn");
+    deleteBtn.setAttribute("type", "button");
+    deleteBtn.setAttribute("id", "deleteBtn");
+    deleteBtn.setAttribute("data-btn", `${count}`);
+
+    bookButtonsContainer.appendChild(statusBtn);
+    bookButtonsContainer.appendChild(deleteBtn);
+
+    bookButtonsContainer.addEventListener("click", (e) => {
+        const target = e.target;
+        switch (target.id) {
+            case "statusBtn":
+                let readStatus = myLibrary[statusBtn.getAttribute("data-btn")].readStatus;
+                myLibrary[statusBtn.getAttribute("data-btn")].readStatus = readStatus ? false : true;
+                rerenderBooks();
+                break;
+            case "deleteBtn":
+                
+                break;
+        }
+    });
+
+    parent.appendChild(bookButtonsContainer);
+
+}
+
 const rerenderBooks = () =>{
     booksContainer.innerHTML = "";
+    count=0;
     myLibrary.forEach(el => {
         const book = document.createElement("div");
         book.classList.add("book");
@@ -46,6 +87,8 @@ const rerenderBooks = () =>{
         book.appendChild(title);
         book.appendChild(description);
         booksContainer.appendChild(book);
+        createBookButtons(book);
+        count++;
     })
 }
 
