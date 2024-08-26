@@ -8,8 +8,15 @@ function Book(title, author, pages, readStatus){
 }
 
 Book.prototype.info = function() {
-    return `${title} by ${author}, ${pages} pages, ${readStatus ? "read" : "not read yet"}`;
+    return `${this.title} by ${this.author}, ${this.pages} pages, ${this.readStatus ? "read" : "not read yet"}`;
 }
+
+
+const dialog = document.querySelector(".dialog");
+const newBookBtn = document.querySelector("#new-book-btn");
+newBookBtn.addEventListener("click", ()=>{
+    dialog.showModal();
+});
 
 const addBookToLibrary = () => {
     const title = document.querySelector("#title");
@@ -22,11 +29,33 @@ const addBookToLibrary = () => {
     myLibrary.push(book);
 }
 
-const dialog = document.querySelector(".dialog");
-const newBookBtn = document.querySelector("#new-book-btn");
-newBookBtn.addEventListener("click", ()=>{
-    dialog.showModal();
-});
+const closeModal = () =>{
+    dialog.close();
+}
 
+const booksContainer = document.querySelector(".container");
+const rerenderBooks = () =>{
+    booksContainer.innerHTML = "";
+    myLibrary.forEach(el => {
+        const book = document.createElement("div");
+        book.classList.add("book");
+        const title = document.createElement("h1");
+        title.textContent = el.title;
+        const description = document.createElement("p");
+        description.textContent = el.info();
+        book.appendChild(title);
+        book.appendChild(description);
+        booksContainer.appendChild(book);
+    })
+}
+
+const addBook = () => {
+    addBookToLibrary();
+    rerenderBooks();
+    closeModal();
+}
+
+const addBtn = document.querySelector(".add-btn");
+addBtn.addEventListener("click", addBook);
 
 
