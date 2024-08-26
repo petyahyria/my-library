@@ -17,5 +17,8 @@ const addBookToLibrary = () => {
     const pages = document.querySelector("#pages");
     const readCheckbox = document.querySelector("#read");
 
-    
+    const book = new Book(title.value, author.value, pages.value, readCheckbox.checked);
+
+    myLibrary.push(book);
 }
+
