@@ -10,6 +10,24 @@
     <title>My library</title>
 </head>
 <body>
+    <dialog open="">
+        <form action="" method="dialog">
+            <div class="form-container">
+                <label for="title">Title:</label>
+                <input type="text" name="title" id="title">
+                <label for="author">Author:</label>
+                <input type="text" name="author" id="author">
+                <label for="pages">Pages:</label>
+                <input type="text" inputmode="numeric" name="pages" id="pages">
+                <div class="read">
+                    <input type="checkbox" name="read" id="read">
+                    <label for="read">Read</label>
+                </div>
+                <button type="button" class="add-btn">Add</button>
+            </div>
+        </form>
+    </dialog>
+    <button type="button" id="new-book-btn">New book</button>
     <div class="container"></div>
 
     <script src="./script.js"></script>

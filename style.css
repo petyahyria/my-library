@@ -1,0 +1,83 @@
+*{
+    box-sizing: border-box;
+
+    padding: 0;
+}
+
+html{
+    font-family: "Roboto", sans-serif;
+    font-size: 10px;
+}
+
+#new-book-btn{
+    display: block;
+    border-style: none;
+    border-radius: 10px;
+    height: 4rem;
+    padding: 5px 10px;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #f8fafc;
+    background-color: #f97316;
+    margin: 0;
+}
+
+dialog{
+    border: none;
+    background-color: #f8fafc;
+    width: 50vw;
+    height: 60vh;
+    margin-top: 10vh;
+    padding: 50px;
+}
+
+
+dialog::backdrop{
+    background-color: #0f172a;
+}
+
+.form-container{
+    width: fit-content;
+    margin: 0 auto;
+}
+
+input{
+    display: block;
+    font-size: 1.6rem;
+}
+
+input[type="text"]{
+    width: 300px;
+    border: none;
+    border: 1px solid #0f172a;
+    height: 3rem;
+    border-radius: 10px;
+    margin-top: 3px;
+    margin-bottom: 15px;
+}
+
+label{
+    display: block;
+    color: #0f172a;
+    font-size: 1.6rem;
+    letter-spacing: 3px;
+    font-weight: 550;
+}
+
+.read{
+    display: flex;
+    gap: 4px;
+}
+
+.add-btn{
+    display: block;
+    border-style: none;
+    border-radius: 10px;
+    height: 4rem;
+    padding: 5px 60px;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #f8fafc;
+    background-color: #f97316;
+    margin-top: 10px;
+}
