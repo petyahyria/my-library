@@ -1,6 +1,6 @@
 *{
     box-sizing: border-box;
-
+    margin: 0;
     padding: 0;
 }
 
@@ -9,17 +9,20 @@ html{
     font-size: 10px;
 }
 
-#new-book-btn{
+.btn{
     display: block;
     border-style: none;
     border-radius: 10px;
     height: 4rem;
-    padding: 5px 10px;
     font-size: 1.6rem;
     font-weight: 600;
     color: #f8fafc;
     background-color: #f97316;
-    margin: 0;
+}
+
+#new-book-btn{
+    padding: 5px 10px;
+    margin: 20px auto;
 }
 
 dialog{
@@ -28,12 +31,14 @@ dialog{
     width: 50vw;
     height: 60vh;
     margin-top: 10vh;
+    margin-right: auto;
+    margin-left: auto;
     padding: 50px;
 }
 
 
 dialog::backdrop{
-    background-color: #0f172a;
+    background-color: #0f172aaa;
 }
 
 .form-container{
@@ -70,14 +75,7 @@ label{
 }
 
 .add-btn{
-    display: block;
-    border-style: none;
-    border-radius: 10px;
-    height: 4rem;
     padding: 5px 60px;
-    font-size: 1.6rem;
-    font-weight: 600;
-    color: #f8fafc;
-    background-color: #f97316;
     margin-top: 10px;
 }
+

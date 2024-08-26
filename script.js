@@ -22,3 +22,11 @@ const addBookToLibrary = () => {
     myLibrary.push(book);
 }
 
+const dialog = document.querySelector(".dialog");
+const newBookBtn = document.querySelector("#new-book-btn");
+newBookBtn.addEventListener("click", ()=>{
+    dialog.showModal();
+});
+
+
+
