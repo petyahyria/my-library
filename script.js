@@ -27,11 +27,18 @@ const addBookToLibrary = () => {
     const book = new Book(title.value, author.value, pages.value, readCheckbox.checked);
 
     myLibrary.push(book);
+
+    title.value = "";
+    author.value = "";
+    pages.value = "";
+    readCheckbox.checked = false;
 }
 
 const closeModal = () =>{
     dialog.close();
 }
+const closeBtn = document.querySelector(".close-btn");
+closeBtn.addEventListener("click", closeModal);
 
 const booksContainer = document.querySelector(".container");
 
@@ -93,10 +100,30 @@ const rerenderBooks = () =>{
     })
 }
 
+const isValid = () =>{
+    const title = document.querySelector("#title");
+    const author = document.querySelector("#author");
+    const pages = document.querySelector("#pages");
+
+    if(title.value === "" || author.value === "" || pages.value === "" || isNaN(+pages.value)){
+        return false;
+    }else{
+        console.log(typeof(+pages.values) !== "number")
+        return true;
+    }
+}
+
 const addBook = () => {
-    addBookToLibrary();
-    rerenderBooks();
-    closeModal();
+    if(!isValid()){
+        isNaN(+pages.value) ? 
+        alert("pages must be a number") :
+        alert("Fill in all fields")
+    }else{
+        addBookToLibrary();
+        rerenderBooks();
+        closeModal();
+    }
+    
 }
 
 const addBtn = document.querySelector(".add-btn");
