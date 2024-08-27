@@ -108,7 +108,6 @@ const isValid = () =>{
     if(title.value === "" || author.value === "" || pages.value === "" || isNaN(+pages.value)){
         return false;
     }else{
-        console.log(typeof(+pages.values) !== "number")
         return true;
     }
 }
